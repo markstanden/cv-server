@@ -10,9 +10,8 @@ RUN ./gradlew build --no-daemon
 FROM openjdk AS prod
 EXPOSE 8080:8080
 
-COPY --from=build /app/build/libs/*.jar /app/build/lib/
-COPY --from=build /app/build/scriptsShadow /app/build/scriptsShadow
+COPY --from=build /app/build/libs/shadow.jar /app/
 COPY --from=build /app/static /app/static
 
 WORKDIR /app
-ENTRYPOINT ["./build/scriptsShadow/cv-server"]
+ENTRYPOINT ["java -jar ./shadow.jar"]

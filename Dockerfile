@@ -5,7 +5,7 @@ ADD https://api.github.com/repos/markstanden/cv-server/git/refs/heads/main versi
 RUN git clone -b main https://github.com/markstanden/cv-server.git /app
 
 WORKDIR /app
-RUN ./gradlew build --no-daemon
+RUN ./gradlew build --no-daemon shadowJar
 
 FROM openjdk AS prod
 EXPOSE 8080:8080

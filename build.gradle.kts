@@ -41,11 +41,6 @@ tasks {
         archiveBaseName.set("shadow")
         archiveClassifier.set("")
         archiveVersion.set("")
-        manifest {
-            attributes(Pair("Main-Class", "dev.markstanden.ApplicationKt"))
-
-
-        }
     }
 
     withType<Test>().configureEach {

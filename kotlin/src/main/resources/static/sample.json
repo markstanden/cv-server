@@ -1,0 +1,140 @@
+{
+	"header": {
+		"contact": {
+			"phone": "01234 567890",
+			"email": "email@address.com"
+		},
+		"location": {
+			"city": "city",
+			"country": "country"
+		},
+		"name": "first second"
+	},
+	"items": [
+		{
+			"title": "Work Experience",
+			"items": [
+				{
+					"position": "position",
+					"company": {
+						"title": "name",
+						"link": "https://www.company.com",
+						"location": "city, country",
+						"department": "particular team"
+					},
+					"dates": "2022 - Present",
+					"items": [
+						{
+							"content": "something you did well, use numbers for particular impact."
+						},
+						{
+							"content": "e.g. 25% productivity improvement"
+						}
+					]
+				},
+				{
+					"position": "another position",
+					"company": {
+						"title": "another name",
+						"link": "https://www.anothercompany.com",
+						"location": "city, country",
+						"department": "another team"
+					},
+					"dates": "2022 - 2022",
+					"items": [
+						{
+							"content": "something you did well, still using numbers for impact."
+						},
+						{
+							"content": "less details"
+						}
+					]
+				}
+			]
+		},
+		{
+			"title": "Technologies and Languages",
+			"items": [
+				{
+					"title": "Languages",
+					"items": [
+						{
+							"content": "language"
+						},
+						{
+							"content": "other language"
+						},
+						{
+							"content": "other languages..."
+						}
+					]
+				},
+				{
+					"title": "Technologies",
+					"items": [
+						{
+							"content": "tech"
+						},
+						{
+							"content": "other tech"
+						},
+						{
+							"content": "other technologies..."
+						}
+					]
+				},
+				{
+					"title": "Skills",
+					"items": [
+						{
+							"content": "skill"
+						},
+						{
+							"content": "other skill"
+						},
+						{
+							"content": "other skills..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"title": "Education and Certifications",
+			"items": [
+				{
+					"title": "qualification",
+					"content": "location",
+					"dates": "2022-2022"
+				},
+				{
+					"title": "other qualification",
+					"content": "other location",
+					"dates": "2021-2021"
+				}
+			]
+		},
+		{
+			"title": "Projects",
+			"items": [
+				{
+					"title": "Project Name",
+					"content": "description of a standout project"
+				},
+				{
+					"title": "Another Project Name",
+					"content": "description of another standout project"
+				}
+			]
+		},
+		{
+			"title": "Other Section",
+			"items": [
+				{
+					"title": "Subtitles",
+					"content": "List of items"
+				}
+			]
+		}
+	]
+}

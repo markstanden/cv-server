@@ -6,7 +6,7 @@ plugins {
     application
     kotlin("jvm") version "1.7.0"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.6.10"
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "dev.markstanden"
@@ -39,7 +39,7 @@ dependencies {
 tasks {
     shadowJar {
         manifest {
-            attributes(Pair("Main-Class", "dev.markstanden.cv-server.ApplicationKt"))
+            attributes(Pair("Main-Class", "dev.markstanden.ApplicationKt"))
         }
     }
 

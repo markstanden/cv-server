@@ -5,13 +5,12 @@ ADD https://api.github.com/repos/markstanden/cv-server/git/refs/heads/main versi
 RUN git clone -b main https://github.com/markstanden/cv-server.git /app
 
 WORKDIR /app
-RUN ./gradlew build --no-daemon shadowJar
+RUN ./gradlew --no-daemon shadowJar
 
 FROM openjdk AS prod
 EXPOSE 8080:8080
 
 COPY --from=build /app/build/libs/shadow.jar /app/
-COPY --from=build /app/static /app/static
 
 WORKDIR /app
-ENTRYPOINT ["java -jar ./shadow.jar"]
+ENTRYPOINT ["java","-jar","shadow.jar"]

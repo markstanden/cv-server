@@ -8,7 +8,7 @@ WORKDIR /app
 RUN ./gradlew --no-daemon shadowJar
 
 FROM openjdk AS prod
-EXPOSE 8080:8080
+EXPOSE 8080
 
 COPY --from=build /app/build/libs/shadow.jar /app/
 

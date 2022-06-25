@@ -2,10 +2,12 @@ package dev.markstanden.plugins
 
 import io.ktor.http.*
 import io.ktor.server.application.*
-import io.ktor.server.http.content.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import dev.markstanden.routes.homepageRouting
+import dev.markstanden.routes.staticRouting
+
 
 fun Application.configureRouting() {
 
@@ -20,13 +22,8 @@ fun Application.configureRouting() {
     }
 
     routing {
-        get("/") {
-            call.respond("Hello World!")
-        }
-        // Static plugin. Try to access `/assets/index.html`
-        static("/assets") {
-            resources("static")
-        }
+        homepageRouting()
+        staticRouting()
     }
 }
 

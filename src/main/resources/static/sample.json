@@ -1,5 +1,5 @@
 {
-	"header": {
+	"user": {
 		"contact": {
 			"phone": "01234 567890",
 			"email": "email@address.com"
@@ -8,15 +8,16 @@
 			"city": "city",
 			"country": "country"
 		},
-		"name": "first second"
+		"name": "first second",
+		"summary": "quick summary"
 	},
-	"items": [
+	"sections": [
 		{
 			"title": "Work Experience",
 			"items": [
 				{
-					"position": "position",
-					"company": {
+					"title": "position",
+					"business": {
 						"title": "name",
 						"link": "https://www.company.com",
 						"location": "city, country",
@@ -33,8 +34,8 @@
 					]
 				},
 				{
-					"position": "another position",
-					"company": {
+					"title": "another position",
+					"business": {
 						"title": "another name",
 						"link": "https://www.anothercompany.com",
 						"location": "city, country",

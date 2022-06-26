@@ -1,6 +1,3 @@
-<#-- @ftlvariable name="user" type="dev.markstanden.models.User" -->
-<#-- @ftlvariable name="cssFile" type="String" -->
-
 <#import "_head.ftl" as head>
 <#import "_headerSection.ftl" as headerSection>
 
@@ -8,7 +5,7 @@
     <!DOCTYPE html>
     <html lang="en">
 
-    <@head.main "${user.name}'s CV" cssFile/>
+    <@head.main "${user.name}'s CV" "${cssFile}"/>
 
     <body>
 

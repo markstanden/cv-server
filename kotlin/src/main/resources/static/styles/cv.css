@@ -1,3 +1,97 @@
-:root{
-	background-color: red;
+:root {
+	font-family       : sans-serif;
+	--color-secondary : indigo;
+}
+
+
+*,
+*::before,
+*::after {
+	-webkit-box-sizing : inherit;
+	box-sizing         : inherit;
+	margin             : 0;
+	padding            : 0;
+}
+
+
+html {
+	-webkit-box-sizing : border-box;
+	box-sizing         : border-box;
+}
+
+
+@media only screen and (max-width : 75em) {
+	html {
+		font-size : 80%;
+	}
+}
+
+
+body {
+	color       : #6D5D4B;
+	font-family : "Nunito", sans-serif;
+	font-weight : 300;
+	line-height : 1.6;
+}
+
+
+html {
+	background-color : white;
+	color            : black;
+	margin           : 1rem;
+}
+
+
+a {
+	color                 : inherit;
+	text-decoration       : underline;
+	text-decoration-color : var(--color-secondary);
+}
+
+
+h1 {
+	font-size : 6rem;
+}
+
+
+section {
+}
+
+
+.headerBlock {
+	display        : flex;
+	flex-direction : row
+}
+
+
+.personal {
+	flex-grow : 1;
+}
+
+
+.applicantLocation ul {
+	display        : flex;
+	flex-direction : row;
+}
+
+
+.applicantLocation ul > li {
+	margin-left : 1rem;
+}
+
+
+.applicantLocation ul:first-child {
+	list-style  : none;
+	margin-left : 0;
+}
+
+
+.links {
+	display         : flex;
+	flex-direction  : column;
+	flex-grow       : 1;
+	justify-content : center;
+	line-height     : 2rem;
+	list-style      : none;
+	text-align      : right;
 }

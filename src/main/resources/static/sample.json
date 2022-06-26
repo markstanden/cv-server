@@ -11,91 +11,70 @@
 		"name": "first second",
 		"summary": "quick summary"
 	},
-	"sections": [
-		{
-			"title": "Work Experience",
-			"items": [
-				{
-					"title": "position",
-					"business": {
-						"title": "name",
-						"link": "https://www.company.com",
-						"location": "city, country",
-						"department": "particular team"
+	"experienceSection": {
+		"title": "Work Experience",
+		"items": [
+			{
+				"title": "position",
+				"business": {
+					"title": "name",
+					"link": "https://www.company.com",
+					"location": {
+						"city": "city",
+						"country": "country"
 					},
-					"dates": "2022 - Present",
-					"items": [
-						{
-							"content": "something you did well, use numbers for particular impact."
-						},
-						{
-							"content": "e.g. 25% productivity improvement"
-						}
-					]
+					"department": "particular team"
 				},
-				{
-					"title": "another position",
-					"business": {
-						"title": "another name",
-						"link": "https://www.anothercompany.com",
-						"location": "city, country",
-						"department": "another team"
+				"dates": "2022 - Present",
+				"content": [
+					"something you did well, use numbers for particular impact.",
+					"e.g. 25% productivity improvement"
+				]
+			},
+			{
+				"title": "another position",
+				"business": {
+					"title": "another name",
+					"link": "https://www.anothercompany.com",
+					"location": {
+						"city": "city",
+						"country": "country"
 					},
-					"dates": "2022 - 2022",
-					"items": [
-						{
-							"content": "something you did well, still using numbers for impact."
-						},
-						{
-							"content": "less details"
-						}
-					]
-				}
-			]
-		},
+					"department": "another team"
+				},
+				"dates": "2022 - 2022",
+				"content": [
+					"something you did well, still using numbers for impact.",
+					"less details"
+				]
+			}
+		]
+	},
+	"sections": [
 		{
 			"title": "Technologies and Languages",
 			"items": [
 				{
 					"title": "Languages",
-					"items": [
-						{
-							"content": "language"
-						},
-						{
-							"content": "other language"
-						},
-						{
-							"content": "other languages..."
-						}
+					"content": [
+						"language",
+						"other language",
+						"other languages..."
 					]
 				},
 				{
 					"title": "Technologies",
-					"items": [
-						{
-							"content": "tech"
-						},
-						{
-							"content": "other tech"
-						},
-						{
-							"content": "other technologies..."
-						}
+					"content": [
+						"tech",
+						"other tech"
 					]
 				},
 				{
 					"title": "Skills",
-					"items": [
-						{
-							"content": "skill"
-						},
-						{
-							"content": "other skill"
-						},
-						{
-							"content": "other skills..."
-						}
+					"content": [
+						"skill",
+						"other skill",
+						"other skills..."
 					]
 				}
 			]
@@ -105,12 +84,16 @@
 			"items": [
 				{
 					"title": "qualification",
-					"content": "location",
+					"content": [
+						"location"
+					],
 					"dates": "2022-2022"
 				},
 				{
 					"title": "other qualification",
-					"content": "other location",
+					"content": [
+						"other location"
+					],
 					"dates": "2021-2021"
 				}
 			]
@@ -120,11 +103,15 @@
 			"items": [
 				{
 					"title": "Project Name",
-					"content": "description of a standout project"
+					"content": [
+						"description of a standout project"
+					]
 				},
 				{
 					"title": "Another Project Name",
-					"content": "description of another standout project"
+					"content": [
+						"description of another standout project"
+					]
 				}
 			]
 		},
@@ -133,7 +120,9 @@
 			"items": [
 				{
 					"title": "Subtitles",
-					"content": "List of items"
+					"content": [
+						"List of items"
+					]
 				}
 			]
 		}

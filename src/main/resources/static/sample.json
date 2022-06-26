@@ -1,14 +1,28 @@
 {
 	"user": {
-		"contact": {
-			"phone": "01234 567890",
-			"email": "email@address.com"
-		},
+		"name": "first second",
 		"location": {
 			"city": "city",
 			"country": "country"
 		},
-		"name": "first second",
+		"contact": {
+			"phone": "01234 567890",
+			"email": "email@address.com"
+		},
+		"links": [
+			{
+				"title": "Github",
+				"url": "https://www.github.com"
+			},
+			{
+				"title": "LinkedIn",
+				"url": "https://www.linkedin.com"
+			},
+			{
+				"title": "Blog",
+				"url": "https://www.medium.com"
+			}
+		],
 		"summary": "quick summary"
 	},
 	"experienceSection": {

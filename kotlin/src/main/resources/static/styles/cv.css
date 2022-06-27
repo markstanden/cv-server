@@ -56,17 +56,20 @@ h1 {
 
 
 h2 {
-	font-size : 2rem;
+	font-size   : 2rem;
+	line-height : 1.5;
 }
 
 
 h3 {
-	font-size : 1.5rem;
+	font-size   : 1.5rem;
+	line-height : 1.4;
 }
 
 
 h4 {
-	font-size : 1.2rem;
+	font-size   : 1.2rem;
+	line-height : 1.4;
 }
 
 
@@ -88,6 +91,7 @@ section {
 .applicantLocation ul {
 	display        : flex;
 	flex-direction : row;
+	font-style     : normal;
 }
 
 
@@ -131,14 +135,26 @@ section {
 	color          : var(--color-secondary);
 	display        : flex;
 	flex-direction : row;
+	width          : 100%;
+}
+
+
+.position-header > :not(:first-child) {
+	margin-left : 1rem;
+}
+
+
+.position-dates {
+	text-align : right;
+	width      : 10rem;
 }
 
 
 .position-title {
+	flex-grow : 1;
 }
-
 
 .bulleted-content {
 	list-style  : square;
-	margin-left : 2rem;
+	margin-left : 3rem;
 }

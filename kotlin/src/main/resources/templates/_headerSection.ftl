@@ -6,9 +6,9 @@
             <h1 class="applicantName">${user.name}</h1>
             <address class="applicantLocation">
                 <ul>
-                    <li>${user.location.city}, ${user.location.country}</li>
-                    <li>${user.contact.email}</li>
-                    <li>${user.contact.phone}</li>
+                    <li><em>Based</em> <strong>${user.location.city}, ${user.location.country}</strong></li>
+                    <li><em>Email:</em> ${user.contact.email}</li>
+                    <li><em>Tel:</em> ${user.contact.phone}</li>
                 </ul>
             </address>
         </section>

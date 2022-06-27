@@ -2,9 +2,11 @@
 
 <#macro article position>
     <article>
-        <h3>${position.title}</h3>
-        <h4>${position.business.title}</h4>
-        <p><strong>${position.dates}</strong></p>
+        <span class="position-header">
+            <h3 class="position-title">${position.title}</h3>
+            <h4 class="position-company">${position.business.title}</h4>
+            <p class="position-dates"><strong>${position.dates}</strong></p>
+        </span>
         <ul>
             <#list position.content as bulletPoint>
                 <li class="bulleted-content">${bulletPoint}</li>

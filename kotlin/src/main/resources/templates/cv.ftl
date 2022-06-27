@@ -9,9 +9,9 @@
 
 <@layout.general user "cv.css">
     <@sectionWrapper.title "Summary">
-        <blockquote>
+        <p class="summary">
             ${user.summary}
-        </blockquote>
+        </p>
     </@sectionWrapper.title>
 
     <@sectionWrapper.title experience.title>

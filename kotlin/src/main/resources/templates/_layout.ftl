@@ -7,11 +7,11 @@
 
     <@head.main "${user.name}'s CV" "${cssFile}"/>
 
-    <body>
+    <body class="main-wrapper">
 
     <@headerSection.titleBlock user/>
 
-    <main class="main-wrapper">
+    <main>
 
         <#nested/>
 

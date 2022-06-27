@@ -52,28 +52,33 @@ a {
 h1 {
 	font-size   : 3rem;
 	line-height : 1.5;
+	font-weight: 200;
 }
 
 
 h2 {
-	font-size   : 2rem;
-	line-height : 1.5;
+	font-size   : 1.7rem;
+	line-height : 1.6;
+	font-weight: 200;
 }
 
 
 h3 {
-	font-size   : 1.5rem;
+	font-size   : 1.4rem;
 	line-height : 1.4;
+	font-weight: 300;
 }
 
 
 h4 {
 	font-size   : 1.2rem;
 	line-height : 1.4;
+	font-weight: 200;
 }
 
 
-section {
+.main-wrapper {
+	max-width: 60rem;
 }
 
 
@@ -97,6 +102,7 @@ section {
 
 .applicantLocation ul > li {
 	margin : 0.9rem;
+	list-style: square;
 }
 
 
@@ -136,6 +142,7 @@ section {
 	display        : flex;
 	flex-direction : row;
 	width          : 100%;
+	margin-top: 0.5rem;
 }
 
 
@@ -156,5 +163,5 @@ section {
 
 .bulleted-content {
 	list-style  : square;
-	margin-left : 3rem;
+	margin-left : 1.9rem;
 }

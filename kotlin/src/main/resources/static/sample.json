@@ -1,9 +1,9 @@
 {
 	"user": {
-		"name": "first second",
+		"name": "First Second",
 		"location": {
-			"city": "city",
-			"country": "country"
+			"city": "City",
+			"country": "Country"
 		},
 		"contact": {
 			"phone": "01234 567890",

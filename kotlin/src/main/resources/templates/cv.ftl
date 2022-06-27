@@ -22,9 +22,11 @@
 
     <#list sections as section>
         <@sectionWrapper.title section.title>
+            <ul>
             <#list section.items as subSection>
-                <p>${subSection}</p>
+                <@sectionWrapper.item subSection/>
             </#list>
+            </ul>
         </@sectionWrapper.title>
     </#list>
 

@@ -6,13 +6,14 @@
 </#macro>
 
 <#macro item item>
-    <li>
-        <span class="item">
-            <div class="item-title">
-                <h3>${item.title}</h3>
-                <h4><#list item.content as bullets><span>${bullets}<#nt>, </span></#list></h4>
-            </div>
-            <p class="item-dates"><strong>${item.dates}</strong></p>
-        </span>
+    <li class="item">
+        <h4 class="item-title">${item.title}</h4>
+        <p class="item-content">
+            <#list item.content as bullets>${bullets}<#sep>, </#sep></#list>.
+        </p>
+        <#if item.dates != "">
+            <p class="dates"><strong>${item.dates}</strong></p>
+        </#if>
+
     </li>
 </#macro>

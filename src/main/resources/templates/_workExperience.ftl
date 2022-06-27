@@ -7,7 +7,7 @@
                 <h3>${position.title}</h3>
                 <h4>${position.business.title}</h4>
             </div>
-            <p class="position-dates"><strong>${position.dates}</strong></p>
+            <p class="dates"><strong>${position.dates}</strong></p>
         </span>
         <ul>
             <#list position.content as bulletPoint>

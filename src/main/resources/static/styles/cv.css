@@ -151,7 +151,7 @@ h4 {
 }
 
 
-.position-dates {
+.dates {
 	text-align : right;
 	width      : 10rem;
 }
@@ -161,7 +161,26 @@ h4 {
 	flex-grow : 1;
 }
 
+
 .bulleted-content {
 	list-style  : square;
 	margin-left : 1.9rem;
+}
+
+
+.item {
+	display        : flex;
+	flex-direction : row;
+	list-style     : none;
+	width          : 100%;
+}
+
+
+.item-title {
+	width : 14rem;
+}
+
+
+.item-content {
+	flex-grow : 1;
 }

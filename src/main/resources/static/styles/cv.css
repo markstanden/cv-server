@@ -1,5 +1,6 @@
 :root {
 	font-family       : sans-serif;
+	--color-primary   : red;
 	--color-secondary : indigo;
 }
 
@@ -28,10 +29,9 @@ html {
 
 
 body {
-	color       : #6D5D4B;
 	font-family : "Nunito", sans-serif;
 	font-weight : 300;
-	line-height : 1.6;
+	line-height : 1.8;
 }
 
 
@@ -50,7 +50,23 @@ a {
 
 
 h1 {
-	font-size : 6rem;
+	font-size   : 3rem;
+	line-height : 1.5;
+}
+
+
+h2 {
+	font-size : 2rem;
+}
+
+
+h3 {
+	font-size : 1.5rem;
+}
+
+
+h4 {
+	font-size : 1.2rem;
 }
 
 
@@ -76,11 +92,11 @@ section {
 
 
 .applicantLocation ul > li {
-	margin-left : 1rem;
+	margin : 0.9rem;
 }
 
 
-.applicantLocation ul:first-child {
+.applicantLocation ul > :first-child {
 	list-style  : none;
 	margin-left : 0;
 }
@@ -94,4 +110,35 @@ section {
 	line-height     : 2rem;
 	list-style      : none;
 	text-align      : right;
+}
+
+
+.section-header {
+	border-bottom : 2px solid var(--color-primary);
+	line-height   : 1;
+	margin        : 0.5rem 0;
+	width         : 100%;
+}
+
+
+.summary {
+	margin : 0 1rem;
+}
+
+
+.position-header {
+	align-items    : baseline;
+	color          : var(--color-secondary);
+	display        : flex;
+	flex-direction : row;
+}
+
+
+.position-title {
+}
+
+
+.bulleted-content {
+	list-style  : square;
+	margin-left : 2rem;
 }

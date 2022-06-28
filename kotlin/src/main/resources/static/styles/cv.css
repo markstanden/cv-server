@@ -1,7 +1,7 @@
 :root {
 	--leftColWidth  : 16rem;
 	--rightColWidth : 10rem;
-	font-family     : sans-serif;
+	font-family     : "Inter Light", sans-serif;
 	--color-impact  : indigo;
 	--bar-spacing   : 0.5rem;
 }
@@ -31,7 +31,6 @@ html {
 
 
 body {
-	font-family : "Nunito", sans-serif;
 	font-weight : 300;
 	line-height : 1.8;
 }
@@ -61,13 +60,13 @@ h1 {
 h2 {
 	font-size   : 1.6rem;
 	font-weight : 200;
-	line-height : 1.6;
+	line-height : 1.7;
 }
 
 
 h3 {
 	font-size   : 1.4rem;
-	font-weight : 400;
+	font-weight : 300;
 	line-height : 1.4;
 }
 

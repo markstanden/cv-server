@@ -8,11 +8,12 @@
 
 
 <@layout.general user "cv.css">
-    <@sectionWrapper.title "Summary">
-        <p class="summary">
-            ${user.summary}
-        </p>
-    </@sectionWrapper.title>
+    <p class="with-bar">
+        ${user.summary}
+    </p>
+<#--    <@sectionWrapper.title "Summary">-->
+<#--        -->
+<#--    </@sectionWrapper.title>-->
 
     <@sectionWrapper.title experience.title>
         <#list experience.items as position>
@@ -22,8 +23,8 @@
 
     <#list sections as section>
         <@sectionWrapper.title section.title>
-            <ul>
-            <#list section.items as subSection>
+            <ul class="with-bar">
+                <#list section.items as subSection>
                 <@sectionWrapper.item subSection/>
             </#list>
             </ul>

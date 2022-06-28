@@ -7,9 +7,9 @@
 
 <#macro item item>
     <li class="item">
-        <h4 class="item-title">${item.title}</h4>
+        <h3 class="item-title">${item.title}</h3>
         <p class="item-content">
-            <#list item.content as bullets>${bullets}<#sep>, </#sep></#list>.
+            <#list item.content as points><span class="item-point">${points}</span><#sep>, </#sep></#list>.
         </p>
         <#if item.dates != "">
             <p class="dates"><strong>${item.dates}</strong></p>

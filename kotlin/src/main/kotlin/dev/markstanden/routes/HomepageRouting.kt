@@ -9,8 +9,11 @@ import io.ktor.server.freemarker.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.util.*
+import io.ktor.util.Identity.decode
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import org.graalvm.compiler.debug.TTY.printf
+import java.net.URLDecoder
 
 
 val test = Json.decodeFromString(Cv.serializer(), asResource(path = "/static/sample.json")!!)
@@ -35,36 +38,25 @@ fun Route.homepageRouting() {
 			)
 		}
 	}
-	route("/from-file") {
+	route("/submit") {
 		post {
-			val customer = call.receive<Cv>()
-			println(customer)
+			val params = call.receiveParameters()
+			val customer = Json.decodeFromString<Cv>(params["data"] ?: "")
 			call.respond(
 				FreeMarkerContent(
 					template = "cv.ftl", model = mapOf(
-					"user" to customer.user, "experience" to customer.experienceSection, "sections" to customer.sections
+					"user" to customer.user,
+					"experience" to customer.experienceSection,
+					"sections" to customer.sections
 				)
 				)
 			)
 		}
 	}
-	route("/upload") {
-		post {
-			println("post to /upload received")
-			// retrieve all multipart data (suspending)
-			val multipart = call.receiveMultipart()
-			printf("All data: %s", multipart.readAllParts())
-			multipart.forEachPart { part ->
-				println(part.name)
-				// if part is a file (could be form item)
-				if (part is PartData.FileItem) {
-					println(part.name)
-					val data = part.provider().toString()
-					println(data)
-				}
-				// make sure to dispose of the part after use to prevent leaks
-				part.dispose()
-			}
+	route("/cv/{id}") {
+		get {
+			println("get to /cv/ received")
+//			println(${call.(id)})
 		}
 	}
 }

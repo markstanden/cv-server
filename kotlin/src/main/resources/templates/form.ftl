@@ -7,8 +7,8 @@
 
 <@layout.general "Form" "form.css">
     <@section.title "Form">
-        <form name="cv" action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" id="file" name="file">
+        <form name="cv" method="post" action="/submit" enctype="application/x-www-form-urlencoded">
+            <textarea type="text" id="data" name="data" style="width:50rem; height:50rem;"></textarea>
             <button type="submit">Submit</button>
         </form>
     </@section.title>

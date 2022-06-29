@@ -1,21 +1,14 @@
 <#import "_head.ftl" as head>
 <#import "_headerSection.ftl" as headerSection>
 
-<#macro general user cssFile>
+<#macro general pageTitle cssFile>
     <!DOCTYPE html>
     <html lang="en">
 
-    <@head.main "${user.name}'s CV" "${cssFile}"/>
+    <@head.main pageTitle "${cssFile}"/>
 
     <body class="main-wrapper">
-
-    <@headerSection.titleBlock user/>
-
-    <main>
-
-        <#nested/>
-
-    </main>
+    <#nested>
     </body>
     </html>
 </#macro>

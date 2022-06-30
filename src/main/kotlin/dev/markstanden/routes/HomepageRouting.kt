@@ -1,19 +1,15 @@
 package dev.markstanden.routes
 
 import dev.markstanden.Files.asResource
-
 import dev.markstanden.models.Cv
-import io.ktor.http.content.*
+import io.github.cdimascio.dotenv.dotenv
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.util.*
-import io.ktor.util.Identity.decode
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import java.net.URLDecoder
 
 
 val test = Json.decodeFromString(Cv.serializer(), asResource(path = "/static/sample.json")!!)
@@ -45,9 +41,7 @@ fun Route.homepageRouting() {
 			call.respond(
 				FreeMarkerContent(
 					template = "cv.ftl", model = mapOf(
-					"user" to customer.user,
-					"experience" to customer.experienceSection,
-					"sections" to customer.sections
+					"user" to customer.user, "experience" to customer.experienceSection, "sections" to customer.sections
 				)
 				)
 			)
@@ -56,7 +50,12 @@ fun Route.homepageRouting() {
 	route("/cv/{id}") {
 		get {
 			println("get to /cv/ received")
+			val pat = dotenv {
+				ignoreIfMissing = true
+			}.get("PAT") ?: "Env variable not found"
+			println("PAT: $pat")
 //			println(${call.(id)})
 		}
 	}
+
 }

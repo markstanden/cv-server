@@ -1,5 +1,8 @@
 # Kotlin Gitignore, combines intelliJ Kotlin defaults with Github Kotlin defaults.
 
+## Dotenv-kotlin
+.env
+
 ## Github kotlin gitignore file
 
 ### Compiled class file

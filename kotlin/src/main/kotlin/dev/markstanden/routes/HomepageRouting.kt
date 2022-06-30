@@ -52,20 +52,23 @@ fun Route.homepageRouting() {
 	}
 	route("/cv/{hash?}") {
 		get {
-			println("get to /cv/ received")
-			val doten = dotenv {
+			// Retrieve values from ENV variables
+			val env = dotenv {
 				ignoreIfMissing = true
 			}
-			val repoPath = doten["REPO_PATH"] ?: "REPO_PATH env variable not set"
-			val filePath = doten["FILE_PATH"] ?: "FILE_PATH env variable not set"
-			val username = doten["USERNAME"] ?: "USERNAME env variable not set"
-			val pat = doten["PAT"] ?: "PAT env variable not set"
-			val hash = call.parameters["hash"] ?: doten["HASH"] ?: "HASH env variable not set"
+			val repoPath = env["REPO_PATH"] ?: "REPO_PATH env variable not set"
+			val filePath = env["FILE_PATH"] ?: "FILE_PATH env variable not set"
+			val username = env["USERNAME"] ?: "USERNAME env variable not set"
+			val pat = env["PAT"] ?: "PAT env variable not set"
+			val hash = call.parameters["hash"] ?: env["HASH"] ?: "HASH env variable not set"
 
 
 			val client = HttpClient(CIO).use {
-				val res = it.request("${repoPath}/${hash}/${filePath}")
-				println(res)
+				val res = it.request("https://api.github.com") {
+					// curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com
+					headers["Authorization"] = "token $pat"
+				}
+				println(res.status)
 			}
 
 		}

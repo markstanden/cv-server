@@ -25,4 +25,17 @@ class ApplicationTest {
 				assertTrue(bodyAsText().contains("first second"))
 			}
 		}
+
+	@Test
+	fun testGHApi() =
+		testApplication {
+			application {
+				configureRouting()
+				configureHTTP()
+				configureTemplating()
+			}
+			client.get("/cv/test").apply {
+				assertEquals(HttpStatusCode.OK, status)
+			}
+		}
 }

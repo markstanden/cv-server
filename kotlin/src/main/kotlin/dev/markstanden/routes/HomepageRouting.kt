@@ -1,5 +1,6 @@
 package dev.markstanden.routes
 
+import dev.markstanden.Files.asResource
 import dev.markstanden.environment.getGithubVariables
 import dev.markstanden.models.Cv
 import dev.markstanden.models.GHContents
@@ -16,21 +17,26 @@ import kotlinx.serialization.json.Json
 
 private val json = Json { ignoreUnknownKeys = true }
 private val env = getGithubVariables()
+private val sampleCV = Json.decodeFromString(Cv.serializer(), asResource(path = "/static/sample.json")!!)
 
 
 fun Route.homepageRouting() {
 
-	route("/form") {
+	route("/") {
 		get {
 			call.respond(
 				FreeMarkerContent(
-					template = "form.ftl", model = null
+					template = "cv.ftl", model = mapOf(
+					"user" to sampleCV.user, "experience" to sampleCV.experienceSection, "sections" to sampleCV.sections
 				)
+				)
+
 			)
 		}
 	}
 
-	route("/cv/{folder}") {
+
+	route("/{folder?}") {
 		get {
 
 			val folder = call.parameters["folder"]
@@ -67,4 +73,13 @@ fun Route.homepageRouting() {
 
 	}
 
+	route("/form") {
+		get {
+			call.respond(
+				FreeMarkerContent(
+					template = "form.ftl", model = null
+				)
+			)
+		}
+	}
 }

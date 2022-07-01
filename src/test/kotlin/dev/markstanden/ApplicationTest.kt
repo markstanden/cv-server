@@ -34,7 +34,7 @@ class ApplicationTest {
 				configureHTTP()
 				configureTemplating()
 			}
-			client.get("/cv/test").apply {
+			client.get("/cv/base").apply {
 				assertEquals(HttpStatusCode.OK, status)
 			}
 		}

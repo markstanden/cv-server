@@ -1,4 +1,4 @@
 package dev.markstanden.models
 
 @kotlinx.serialization.Serializable
-data class GHCommit(val sha: String, val url: String)
+data class GHContents(val sha: String, val download_url: String)

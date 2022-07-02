@@ -19,7 +19,7 @@ const val GITHUB_JSON = "application/vnd.github.v3+json"
 private val json = Json { ignoreUnknownKeys = true }
 private val env = getGithubVariables()
 
-
+// TODO: 02/07/2022 refactor this route with github specific code extracted.
 fun Route.cvRoute() {
 	route("/cv/{folder}") {
 		get {
@@ -37,6 +37,7 @@ fun Route.cvRoute() {
 
 			call.response.status(res.status)
 
+			// TODO: 02/07/2022 Use error specific, styled pages and redirects
 			// Abort early if the file is not found
 			if (res.status != HttpStatusCode.OK) {
 				client.close()
@@ -59,6 +60,7 @@ fun Route.cvRoute() {
 			call.response.status(fileContents.status)
 			client.close()
 
+			// TODO: 02/07/2022 refactor with CV as a single variable
 			call.respond(
 				FreeMarkerContent(
 					template = "cv.ftl", model = mapOf(

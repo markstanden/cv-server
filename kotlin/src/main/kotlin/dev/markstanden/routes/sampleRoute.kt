@@ -8,11 +8,11 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.json.Json
 
-private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = "/static/sample.json")!!)
+private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = "/static/assets/sample.json")!!)
 
-fun Route.rootRoute() {
+fun Route.sampleRoute() {
 
-	route("/") {
+	route("/sample") {
 		get {
 			call.respond(
 				FreeMarkerContent(
@@ -23,7 +23,6 @@ fun Route.rootRoute() {
 						"sections" to sampleCV.sections
 					)
 				)
-
 			)
 		}
 	}

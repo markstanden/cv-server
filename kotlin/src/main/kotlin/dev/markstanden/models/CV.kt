@@ -3,7 +3,7 @@ package dev.markstanden.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Cv(
+data class CV(
 	val user: User,
 	val experienceSection: ExperienceSection,
 	val sections: List<Section>,

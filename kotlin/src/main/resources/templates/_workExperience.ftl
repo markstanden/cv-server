@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="position" type="dev.markstanden.models.Cv.Position" -->
+<#-- @ftlvariable name="position" type="dev.markstanden.models.CV.Position" -->
 
 <#macro article position>
     <article>

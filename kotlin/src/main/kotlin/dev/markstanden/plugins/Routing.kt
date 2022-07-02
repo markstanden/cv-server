@@ -1,6 +1,8 @@
 package dev.markstanden.plugins
 
-import dev.markstanden.routes.homepageRouting
+import dev.markstanden.routes.cvRoute
+import dev.markstanden.routes.formRoute
+import dev.markstanden.routes.rootRoute
 import dev.markstanden.routes.staticRouting
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -22,7 +24,9 @@ fun Application.configureRouting() {
 	}
 
 	routing {
-		homepageRouting()
+		rootRoute()
+		cvRoute()
+		formRoute()
 		staticRouting()
 	}
 }

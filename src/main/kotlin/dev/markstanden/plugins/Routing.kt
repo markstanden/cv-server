@@ -1,7 +1,6 @@
 package dev.markstanden.plugins
 
 import dev.markstanden.routes.cvRoute
-import dev.markstanden.routes.formRoute
 import dev.markstanden.routes.rootRoute
 import dev.markstanden.routes.staticRouting
 import io.ktor.http.*
@@ -26,7 +25,6 @@ fun Application.configureRouting() {
 	routing {
 		rootRoute()
 		cvRoute()
-		formRoute()
 		staticRouting()
 	}
 }

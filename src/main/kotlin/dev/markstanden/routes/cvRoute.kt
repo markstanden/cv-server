@@ -40,7 +40,7 @@ fun Route.cvRoute() {
 			// Abort early if the file is not found
 			if (res.status != HttpStatusCode.OK) {
 				client.close()
-				call.respond("Not Found")
+				call.respond("Something went wrong...")
 				return@get
 			}
 

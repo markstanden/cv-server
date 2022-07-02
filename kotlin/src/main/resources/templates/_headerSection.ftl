@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="user" type="dev.markstanden.models.User" -->
+<#-- @ftlvariable name="user" type="dev.markstanden.models.Cv.User" -->
 
 <#macro titleBlock user>
     <header class="headerBlock">

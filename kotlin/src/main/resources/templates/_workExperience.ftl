@@ -1,14 +1,14 @@
-<#-- @ftlvariable name="position" type="dev.markstanden.models.Position" -->
+<#-- @ftlvariable name="position" type="dev.markstanden.models.Cv.Position" -->
 
 <#macro article position>
     <article>
-        <span class="position-header">
+        <div class="position-header">
             <div class="position-title">
                 <h3>${position.title}</h3>
                 <h4>${position.business.title}</h4>
             </div>
             <p class="dates"><strong>${position.dates}</strong></p>
-        </span>
+        </div>
         <ul class="with-bar">
             <#list position.content as bulletPoint>
                 <li class="bulleted-content">${bulletPoint}</li>

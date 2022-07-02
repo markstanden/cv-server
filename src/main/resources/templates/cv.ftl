@@ -1,6 +1,6 @@
-<#-- @ftlvariable name="user" type="dev.markstanden.models.Cv.User" -->
-<#-- @ftlvariable name="experience" type="dev.markstanden.models.Cv.ExperienceSection" -->
-<#-- @ftlvariable name="sections" type="kotlin.collections.List<dev.markstanden.models.Cv.Section>" -->
+<#-- @ftlvariable name="user" type="dev.markstanden.models.CV.User" -->
+<#-- @ftlvariable name="experience" type="dev.markstanden.models.CV.ExperienceSection" -->
+<#-- @ftlvariable name="sections" type="kotlin.collections.List<dev.markstanden.models.CV.Section>" -->
 
 <#import  "_layout.ftl" as layout>
 <#import  "_headerSection.ftl" as headerSection>

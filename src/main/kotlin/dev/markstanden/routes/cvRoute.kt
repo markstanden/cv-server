@@ -35,14 +35,16 @@ fun Route.cvRoute() {
 				headers["Authorization"] = "token ${env.personalAccessToken}"
 			}
 
+			call.response.status(res.status)
+
 			// Abort early if the file is not found
 			if (res.status != HttpStatusCode.OK) {
-				call.response.status(res.status)
 				client.close()
 				call.respond("Not Found")
 				return@get
 			}
 
+			// GH response for a file lookup contains the file SHA a direct download link.
 			val fileInfo = json.decodeFromString<GitHubAPI.Contents>(res.body())
 
 			val fileContents = client.get(fileInfo.download_url) {
@@ -50,7 +52,9 @@ fun Route.cvRoute() {
 				headers["Authorization"] = "token ${env.personalAccessToken}"
 			}
 
+			// The raw file downloaded, parse to a CV object
 			val cv = json.decodeFromString<CV>(fileContents.body())
+
 
 			call.response.status(fileContents.status)
 			client.close()

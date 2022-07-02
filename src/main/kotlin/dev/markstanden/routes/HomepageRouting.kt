@@ -3,7 +3,7 @@ package dev.markstanden.routes
 import dev.markstanden.Files.asResource
 import dev.markstanden.environment.getGithubVariables
 import dev.markstanden.models.Cv
-import dev.markstanden.models.GHContents
+import dev.markstanden.models.GitHubAPI
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -50,7 +50,7 @@ fun Route.homepageRouting() {
 				headers["Authorization"] = "token ${env.personalAccessToken}"
 			}
 
-			val downloadURL = json.decodeFromString<GHContents>(res.body())
+			val downloadURL = json.decodeFromString<GitHubAPI.Contents>(res.body())
 
 			val file = client.get(downloadURL.download_url) {
 				headers["Accept"] = "application/vnd.github.v3+json"

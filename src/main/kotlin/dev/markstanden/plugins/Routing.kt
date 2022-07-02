@@ -1,7 +1,8 @@
 package dev.markstanden.plugins
 
 import dev.markstanden.routes.cvRoute
-import dev.markstanden.routes.rootRoute
+import dev.markstanden.routes.healthcheckRoute
+import dev.markstanden.routes.sampleRoute
 import dev.markstanden.routes.staticRouting
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -23,7 +24,8 @@ fun Application.configureRouting() {
 	}
 
 	routing {
-		rootRoute()
+		healthcheckRoute()
+		sampleRoute()
 		cvRoute()
 		staticRouting()
 	}

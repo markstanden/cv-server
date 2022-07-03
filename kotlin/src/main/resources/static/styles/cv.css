@@ -1,9 +1,11 @@
 :root {
-	--leftColWidth  : 16rem;
-	--rightColWidth : 15rem;
-	font-family     : "Inter Light", sans-serif;
-	--color-impact  : indigo;
-	--bar-spacing   : 0.5rem;
+	--itemTitleColWidth : 10rem;
+	--leftColWidth      : 20rem;
+	--rightColWidth     : 12rem;
+	font-family         : "Inter Light", sans-serif;
+	font-size           : 90%;
+	--color-impact      : mediumblue;
+	--bar-spacing       : 0.5rem;
 }
 
 
@@ -166,7 +168,6 @@ h4 {
 	align-items    : baseline;
 	display        : flex;
 	flex-direction : row;
-	font-weight    : bold;
 	margin         : 0.2rem 0 0.2rem 0;
 	width          : 100%;
 }
@@ -187,12 +188,14 @@ h4 {
 
 
 .position-title > h3 {
-	width : var(--leftColWidth);
+	font-weight : bolder;
 }
 
 
-.position-title > h4 {
-	flex-grow : 1;
+.position-title > .position-company {
+	flex-grow   : 1;
+	/*text-align : right;*/
+	margin-left : 1rem;
 }
 
 
@@ -207,7 +210,7 @@ h4 {
 .item-title {
 	font-size   : 1rem;
 	font-weight : bold;
-	width       : calc(var(--leftColWidth) - (2 * var(--bar-spacing)));
+	min-width   : var(--itemTitleColWidth);
 }
 
 

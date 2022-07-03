@@ -4,8 +4,9 @@
     <article>
         <div class="position-header">
             <div class="position-title">
-                <h3>${position.title}</h3>
-                <h4>${position.business.title}</h4>
+                <h3><strong>${position.title}</strong></h3>
+                <h4 class="position-company"><em>${position.business.title}, ${position.business.location.city}</em>
+                </h4>
             </div>
             <p class="dates"><strong>${position.dates}</strong></p>
         </div>

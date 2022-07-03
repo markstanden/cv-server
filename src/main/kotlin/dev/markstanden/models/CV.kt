@@ -73,5 +73,6 @@ data class CV(
 		val title: String,
 		val content: List<String> = emptyList(),
 		val dates: String = "",
+		val link: String = "",
 	)
 }

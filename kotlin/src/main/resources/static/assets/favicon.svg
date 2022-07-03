@@ -18,11 +18,11 @@
       stroke-linecap="round"/>
 </g>
     <g transform="matrix(1 0 0 1 150 95.51)" style="" id="V58Hf4F7wsRfop083p8WM">
-		<text xml:space="preserve" font-family="Sans" font-size="120" font-style="normal" font-weight="normal"
+		<text xml:space="preserve" font-family="Sans" font-size="100" font-style="normal" font-weight="normal"
               letter-spacing="0.14"
               style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;">
-            <tspan x="-90" y="25">C</tspan>
-            <tspan x="10" y="25">V</tspan>
+            <tspan x="-110" y="25">C</tspan>
+            <tspan x="-20" y="25">V</tspan>
         </text>
         <style>
           @font-face {

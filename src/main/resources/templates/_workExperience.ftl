@@ -10,7 +10,7 @@
             </div>
             <p class="dates"><strong>${position.dates}</strong></p>
         </div>
-        <ul class="with-bar">
+        <ul class="position-bullets">
             <#list position.content as bulletPoint>
                 <li class="bulleted-content">${bulletPoint}</li>
             </#list>

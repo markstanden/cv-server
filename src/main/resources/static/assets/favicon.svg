@@ -18,23 +18,19 @@
       stroke-linecap="round"/>
 </g>
     <g transform="matrix(1 0 0 1 150 95.51)" style="" id="V58Hf4F7wsRfop083p8WM">
-		<text xml:space="preserve" font-family="Inter" font-size="70" font-style="normal" font-weight="normal"
-              letter-spacing="0.14" line-height="1"
-              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;"><tspan x="-109.5" y="6.54">C</tspan>
-            <tspan x="-58.45" y="6.54">.</tspan>
-            <tspan x="-39.02" y="6.54">V</tspan>
-            <tspan x="1.69" y="6.54">.</tspan></text>
+		<text xml:space="preserve" font-family="Sans" font-size="120" font-style="normal" font-weight="normal"
+              letter-spacing="0.14"
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;">
+            <tspan x="-90" y="25">C</tspan>
+            <tspan x="10" y="25">V</tspan>
+        </text>
         <style>
           @font-face {
           font-family: sans-serif;
-          font-weight: 200;
+          font-weight: 600;
           }
         </style></g>
-    <g transform="matrix(1 0 0 1 40 100)" id="RBWOFTiE-R9f9Q53ytDUK">
-<path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"
-      vector-effect="non-scaling-stroke" transform=" translate(0, 0)" d="M 0 0" stroke-linecap="round"/>
-</g>
-    <g transform="matrix(1 0 0 1 160 130.1)" id="vxRGlZxlubOcIzj_NWLBm">
+    <g transform="matrix(1 0 0 1 160 140)" id="vxRGlZxlubOcIzj_NWLBm">
 <path style="stroke: rgb(108,59,244); stroke-width: 2; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"
       vector-effect="non-scaling-stroke" transform=" translate(0, 0)" d="M -120 0 L 120 0" stroke-linecap="round"/>
 </g>

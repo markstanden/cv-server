@@ -232,11 +232,16 @@ h4 {
 
 @media only print {
 	:root {
-		font-size : 80%;
+		font-size : 75%;
 	}
 
 
 	html {
 		margin : 0 1rem 0 0;
+	}
+
+
+	.print-break {
+		page-break-after : always;
 	}
 }

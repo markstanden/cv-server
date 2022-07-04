@@ -23,7 +23,6 @@ private val env = getGithubVariables()
 fun Route.cvRoute() {
 	route("/cv/{folder}") {
 		get {
-
 			val folder = call.parameters["folder"]
 
 			val url = "https://api.github.com/repos/${env.userName}/${env.repoName}/contents/$folder/cv.json"

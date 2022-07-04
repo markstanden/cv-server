@@ -22,6 +22,8 @@
             </#list>
         </@sectionWrapper.title>
 
+        <div class="print-break"></div>
+
         <#list sections as section>
             <@sectionWrapper.title section.title>
                 <ul class="with-bar">

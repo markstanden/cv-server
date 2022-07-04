@@ -1,7 +1,7 @@
 <#-- @ftlvariable name="position" type="dev.markstanden.models.CV.Position" -->
 
 <#macro article position>
-    <article>
+    <article class="vertically-spaced">
         <div class="position-header">
             <div class="position-title">
                 <h3><strong>${position.title}</strong></h3>

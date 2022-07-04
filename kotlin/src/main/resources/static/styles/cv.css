@@ -146,7 +146,7 @@ h4 {
 
 .section-header {
 	border-bottom : 2px solid var(--color-impact);
-	line-height   : 1;
+	line-height   : 1.2;
 	margin        : 1rem 0 0.5rem 0;
 	width         : 100%;
 }
@@ -209,6 +209,12 @@ h4 {
 	flex-direction : row;
 	list-style     : none;
 	width          : 100%;
+}
+
+
+.vertically-spaced {
+	margin-bottom : 0.5rem;
+	margin-top    : 0.5rem;
 }
 
 

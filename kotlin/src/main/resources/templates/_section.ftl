@@ -6,7 +6,7 @@
 </#macro>
 
 <#macro item item>
-    <li class="item">
+    <li class="item vertically-spaced">
         <h3 class="item-title">
             <#if item.link != "">
                 <a href="${item.link}">${item.title}</a>?

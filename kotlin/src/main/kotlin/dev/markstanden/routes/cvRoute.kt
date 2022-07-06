@@ -19,10 +19,12 @@ const val GITHUB_JSON = "application/vnd.github.v3+json"
 private val json = Json { ignoreUnknownKeys = true }
 private val env = getGithubVariables()
 
+
 // TODO: 02/07/2022 refactor this route with github specific code extracted.
 fun Route.cvRoute() {
 	route("/cv/{folder}") {
 		get {
+			// TODO: 06/07/2022 clean/validate user input
 			val folder = call.parameters["folder"]
 
 			val url = "https://api.github.com/repos/${env.userName}/${env.repoName}/contents/$folder/cv.json"

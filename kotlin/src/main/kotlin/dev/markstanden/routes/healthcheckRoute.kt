@@ -9,7 +9,7 @@ fun Route.healthcheckRoute() {
 	route("/healthcheck") {
 		get {
 			call.response.status(HttpStatusCode.OK)
-			call.respond("OK")
+			call.respond("Healthcheck OK")
 		}
 	}
 }

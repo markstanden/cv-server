@@ -1,11 +1,11 @@
-<#macro title title>
-    <section>
+<#macro withTitle title>
+    <section class="section-wrapper">
         <h2 class="section-header">${title}</h2>
         <#nested/>
     </section>
 </#macro>
 
-<#macro item item>
+<#macro content item>
     <li class="item vertically-spaced">
         <h3 class="item-title">
             <#if item.link != "">
@@ -20,6 +20,5 @@
         <#if item.dates != "">
             <p class="dates"><strong>${item.dates}</strong></p>
         </#if>
-
     </li>
 </#macro>

@@ -16,7 +16,7 @@ fun Route.sampleRoute() {
 		get {
 			call.respond(
 				FreeMarkerContent(
-					template = "cv.ftl",
+					template = "cvTemplate.ftl",
 					model = mapOf(
 						"user" to sampleCV.user,
 						"experience" to sampleCV.experienceSection,

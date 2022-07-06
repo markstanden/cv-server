@@ -62,7 +62,7 @@ fun Route.cvRoute() {
 			// TODO: 02/07/2022 refactor with CV as a single variable
 			call.respond(
 				FreeMarkerContent(
-					template = "cv.ftl", model = mapOf(
+					template = "cvTemplate.ftl", model = mapOf(
 					"user" to cv.user, "experience" to cv.experienceSection, "sections" to cv.sections
 				)
 				)

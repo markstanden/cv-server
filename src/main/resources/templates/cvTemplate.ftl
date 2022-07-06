@@ -3,10 +3,10 @@
 <#-- @ftlvariable name="sections" type="kotlin.collections.List<dev.markstanden.models.CV.Section>" -->
 
 <#import  "_layout.ftl" as layout>
-<#import  "_headerSection.ftl" as headerSection>
+<#import  "_headerTemplate.ftl" as headerSection>
 
-<#import  "_section.ftl" as sectionWrapper>
-<#import  "_workExperience.ftl" as workExp>
+<#import  "_sectionTemplate.ftl" as sectionTemplate>
+<#import  "_workExperienceTemplate.ftl" as workExp>
 
 
 <@layout.general "${user.name}'s CV" "cv.css">
@@ -16,22 +16,20 @@
             ${user.summary}
         </p>
 
-        <@sectionWrapper.title experience.title>
+        <@sectionTemplate.withTitle experience.title>
             <#list experience.items as position>
                 <@workExp.article position/>
             </#list>
-        </@sectionWrapper.title>
+        </@sectionTemplate.withTitle>
 
-        <div class="print-break"></div>
-
-        <#list sections as section>
-            <@sectionWrapper.title section.title>
+        <#list sections as eachSection>
+            <@sectionTemplate.withTitle eachSection.title>
                 <ul class="with-bar">
-                    <#list section.items as subSection>
-                        <@sectionWrapper.item subSection/>
+                    <#list eachSection.items as subSection>
+                        <@sectionTemplate.content subSection/>
                     </#list>
                 </ul>
-            </@sectionWrapper.title>
+            </@sectionTemplate.withTitle>
         </#list>
     </main>
 </@layout.general>

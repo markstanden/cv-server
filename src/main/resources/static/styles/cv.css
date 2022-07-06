@@ -241,7 +241,7 @@ h4 {
 	}
 
 
-	.print-break {
-		page-break-after : always;
+	.section-wrapper {
+		page-break-inside : avoid;
 	}
 }

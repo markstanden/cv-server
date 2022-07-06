@@ -1,5 +1,5 @@
 <#import "_head.ftl" as head>
-<#import "_headerSection.ftl" as headerSection>
+<#import "_headerTemplate.ftl" as headerSection>
 
 <#macro general pageTitle cssFile>
     <!DOCTYPE html>

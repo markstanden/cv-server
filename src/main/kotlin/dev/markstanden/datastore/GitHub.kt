@@ -8,6 +8,7 @@ import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
@@ -23,10 +24,9 @@ class GitHub : DataStore {
 		val url = "https://api.github.com/repos/${env.userName}/${env.repoName}/contents/$id/cv.json"
 
 		val client = HttpClient(CIO)
-		val res = client.get(url) {
-			headers["Accept"] = GITHUB_JSON
-			headers["Authorization"] = "token ${env.personalAccessToken}"
-		}
+		val getWithAuthorization = get(client)
+
+		val res = getWithAuthorization(url)
 
 		// Abort early if the file is not found
 		if (res.status != HttpStatusCode.OK) {
@@ -37,10 +37,7 @@ class GitHub : DataStore {
 		// GH response for a file lookup contains the file SHA a direct download link.
 		val fileInfo = json.decodeFromString<GitHubAPI.Contents>(res.body())
 
-		val fileContents = client.get(fileInfo.download_url) {
-			headers["Accept"] = GITHUB_JSON
-			headers["Authorization"] = "token ${env.personalAccessToken}"
-		}
+		val fileContents = getWithAuthorization(fileInfo.download_url)
 
 		// The raw file downloaded, parse to a CV object
 		val cv = json.decodeFromString<CV>(fileContents.body())
@@ -52,4 +49,14 @@ class GitHub : DataStore {
 		return Pair("", HttpStatusCode.OK)
 	}
 
+	fun get(client: HttpClient) =
+		{ url: String ->
+			runBlocking {
+				client.get(url) {
+					headers["Accept"] = GITHUB_JSON
+					headers["Authorization"] = "token ${env.personalAccessToken}"
+				}
+			}
+
+		}
 }

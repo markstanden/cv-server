@@ -19,15 +19,21 @@ class GitHub : DataStore {
 		private val env = getGithubVariables()
 	}
 
-	private fun cvUrl(id: String) =
-		"https://api.github.com/repos/${env.userName}/${env.repoName}/contents/$id/cv.json"
+	private fun urlGenerator(userName: String) =
+		{ repoName: String ->
+			{ id: String ->
+				{ filename: String ->
+					"https://api.github.com/repos/$userName/$repoName/contents/$id/$filename.json"
+				}
+			}
+		}
+
 
 	override suspend fun getCV(id: String): Pair<CV?, HttpStatusCode> {
 
 		val client = HttpClient(CIO)
 		val getWithAuthorization = get(client)(env.personalAccessToken)
-
-		val res = getWithAuthorization(cvUrl(id))
+		val res = getWithAuthorization(urlGenerator(env.userName)(env.repoName)(id)("cv"))
 
 		// Abort early if the file is not found
 		if (res.status != HttpStatusCode.OK) {

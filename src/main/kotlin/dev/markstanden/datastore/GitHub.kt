@@ -16,17 +16,18 @@ class GitHub : DataStore {
 	companion object {
 		const val GITHUB_JSON = "application/vnd.github.v3+json"
 		private val json = Json { ignoreUnknownKeys = true }
+		private val env = getGithubVariables()
 	}
 
-	private val env = getGithubVariables()
+	private fun cvUrl(id: String) =
+		"https://api.github.com/repos/${env.userName}/${env.repoName}/contents/$id/cv.json"
 
 	override suspend fun getCV(id: String): Pair<CV?, HttpStatusCode> {
-		val url = "https://api.github.com/repos/${env.userName}/${env.repoName}/contents/$id/cv.json"
 
 		val client = HttpClient(CIO)
-		val getWithAuthorization = get(client)
+		val getWithAuthorization = get(client)(env.personalAccessToken)
 
-		val res = getWithAuthorization(url)
+		val res = getWithAuthorization(cvUrl(id))
 
 		// Abort early if the file is not found
 		if (res.status != HttpStatusCode.OK) {
@@ -49,14 +50,15 @@ class GitHub : DataStore {
 		return Pair("", HttpStatusCode.OK)
 	}
 
-	fun get(client: HttpClient) =
-		{ url: String ->
-			runBlocking {
-				client.get(url) {
-					headers["Accept"] = GITHUB_JSON
-					headers["Authorization"] = "token ${env.personalAccessToken}"
+	private fun get(client: HttpClient) =
+		{ personalAccessToken: String ->
+			{ url: String ->
+				runBlocking {
+					client.get(url) {
+						headers["Accept"] = GITHUB_JSON
+						headers["Authorization"] = "token $personalAccessToken"
+					}
 				}
 			}
-
 		}
 }

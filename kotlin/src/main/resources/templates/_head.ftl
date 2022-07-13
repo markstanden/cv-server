@@ -5,6 +5,7 @@
                 content="width=device-width, initial-scale=1.0"
                 name="viewport"
         />
+        <meta name="robots" content="noindex">
         <title>${pageTitle}</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">

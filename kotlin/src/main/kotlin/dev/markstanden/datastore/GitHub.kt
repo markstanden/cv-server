@@ -34,7 +34,7 @@ class GitHub : DataStore {
 
 	override suspend fun getCV(id: String): Pair<CV?, HttpStatusCode> {
 
-		val fileContents = getFile<CV>(id = id, fileName = CV_FILENAME)
+		val fileContents = getFile(id = id, fileName = CV_FILENAME)
 		// The raw file downloaded, parse to a CV object
 		val cv = json.decodeFromString<CV>(fileContents.body())
 
@@ -42,8 +42,7 @@ class GitHub : DataStore {
 	}
 
 
-	private suspend fun <T> getFile(id: String, fileName: String): HttpResponse {
-
+	private suspend fun getFile(id: String, fileName: String): HttpResponse {
 		val client = HttpClient(CIO)
 		val getWithAuthorization = get(client)(env.personalAccessToken)
 		val lookupResponse = getWithAuthorization(urlGenerator(env.userName)(env.repoName)(id)(fileName))
@@ -61,7 +60,7 @@ class GitHub : DataStore {
 	}
 
 	override suspend fun getCover(id: String): Pair<String, HttpStatusCode> {
-		val fileContents = getFile<String>(id = id, fileName = COVER_LETTER_FILENAME)
+		val fileContents = getFile(id = id, fileName = COVER_LETTER_FILENAME)
 		// The raw file downloaded, parse to a CV object
 		return Pair(fileContents.body(), HttpStatusCode.OK)
 	}

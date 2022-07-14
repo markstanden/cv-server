@@ -59,6 +59,7 @@ class GitHub : DataStore {
 		return getWithAuthorization(fileInfo.download_url)
 	}
 
+
 	override suspend fun getCover(id: String): Pair<String, HttpStatusCode> {
 		val fileContents = getFile(id = id, fileName = COVER_LETTER_FILENAME)
 		// The raw file downloaded, parse to a CV object

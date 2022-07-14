@@ -129,7 +129,8 @@ h4 {
 
 
 .link-item > a {
-	width : var(--rightColWidth);
+	flex-grow : 1;
+	width     : var(--rightColWidth);
 }
 
 

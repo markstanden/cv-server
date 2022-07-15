@@ -17,6 +17,7 @@ class GitHub : DataStore {
 	companion object {
 		const val GITHUB_JSON = "application/vnd.github.v3+json"
 		const val CV_FILENAME = "cv.json"
+		const val BASE_DIRECTORY_NAME = "tech"
 		const val COVER_LETTER_FILENAME = "coverletter.json"
 		private val json = Json { ignoreUnknownKeys = true }
 		private val env = getGithubVariables()
@@ -26,15 +27,17 @@ class GitHub : DataStore {
 		{ repoName: String ->
 			{ id: String ->
 				{ filename: String ->
-					"https://api.github.com/repos/$userName/$repoName/contents/$id/$filename"
+					{ branch: String ->
+						"https://api.github.com/repos/$userName/$repoName/contents/$id/$filename?ref=$branch"
+					}
 				}
 			}
 		}
 
 
-	override suspend fun getCV(id: String): Pair<CV?, HttpStatusCode> {
+	override suspend fun getCV(branch: String): Pair<CV?, HttpStatusCode> {
 
-		val fileContents = getFile(id = id, fileName = CV_FILENAME)
+		val fileContents = getFile(branch = branch, fileName = CV_FILENAME)
 		// The raw file downloaded, parse to a CV object
 		val cv = json.decodeFromString<CV>(fileContents.body())
 
@@ -42,11 +45,13 @@ class GitHub : DataStore {
 	}
 
 
-	private suspend fun getFile(id: String, fileName: String): HttpResponse {
+	private suspend fun getFile(branch: String, fileName: String): HttpResponse {
 		val client = HttpClient(CIO)
 		val getWithAuthorization = get(client)(env.personalAccessToken)
-		val lookupResponse = getWithAuthorization(urlGenerator(env.userName)(env.repoName)(id)(fileName))
-
+		val url = urlGenerator(env.userName)(env.repoName)(BASE_DIRECTORY_NAME)(fileName)(branch)
+		println(url)
+		val lookupResponse = getWithAuthorization(url)
+		println(lookupResponse.body() as String)
 		// Abort early if the file is not found or inaccessible
 		if (lookupResponse.status != HttpStatusCode.OK) {
 			client.close()
@@ -60,8 +65,8 @@ class GitHub : DataStore {
 	}
 
 
-	override suspend fun getCover(id: String): Pair<String, HttpStatusCode> {
-		val fileContents = getFile(id = id, fileName = COVER_LETTER_FILENAME)
+	override suspend fun getCover(branch: String): Pair<String, HttpStatusCode> {
+		val fileContents = getFile(branch = branch, fileName = COVER_LETTER_FILENAME)
 		// The raw file downloaded, parse to a CV object
 		return Pair(fileContents.body(), HttpStatusCode.OK)
 	}

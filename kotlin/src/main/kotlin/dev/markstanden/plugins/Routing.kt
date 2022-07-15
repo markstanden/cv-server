@@ -21,7 +21,7 @@ fun Application.configureRouting() {
 
 		route("/") {
 			get {
-				call.respondRedirect("/$path/tech")
+				call.respondRedirect("/$path/test")
 			}
 		}
 	}

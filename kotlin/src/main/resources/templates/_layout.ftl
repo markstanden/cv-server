@@ -10,5 +10,6 @@
     <body class="main-wrapper">
     <#nested>
     </body>
-    </html>
+
+</html>
 </#macro>

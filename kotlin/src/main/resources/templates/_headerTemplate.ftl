@@ -8,8 +8,7 @@
                 <ul>
                     <li class="flex">
                         <em class="info_title">Based: </em>
-                        <strong>${user.location.city}
-                            , ${user.location.country}</strong>
+                        <strong>${user.location.city}, ${user.location.country}</strong>
                     </li>
                     <li class="flex">
                         <em class="info_title">Email: </em>

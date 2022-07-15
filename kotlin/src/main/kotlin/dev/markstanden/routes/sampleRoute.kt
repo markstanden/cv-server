@@ -8,7 +8,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.json.Json
 
-private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = "/static/assets/sample.json")!!)
+private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = "/assets/sample.json")!!)
 
 fun Route.sampleRoute() {
 

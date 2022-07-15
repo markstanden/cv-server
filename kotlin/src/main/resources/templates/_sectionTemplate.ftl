@@ -15,7 +15,9 @@
             </#if>
         </h3>
         <p class="item-content">
-            <#list item.content as points><span class="item-point">${points}</span></#list>.
+            <#list item.content as points>
+                <span class="item-point">${points}</span>
+            </#list><#lt>.
         </p>
         <#if item.dates != "">
             <p class="dates"><strong>${item.dates}</strong></p>

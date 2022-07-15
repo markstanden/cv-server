@@ -15,29 +15,46 @@ import kotlinx.serialization.json.Json
 
 class GitHub : DataStore {
 	companion object {
+		/** GitHub recommends the following accept string */
 		const val GITHUB_JSON = "application/vnd.github.v3+json"
-		const val CV_FILENAME = "cv.json"
-		const val BASE_DIRECTORY_NAME = "tech"
-		const val COVER_LETTER_FILENAME = "coverletter.json"
-		private val json = Json { ignoreUnknownKeys = true }
-		private val env = getGithubVariables()
-	}
 
-	private fun urlGenerator(userName: String) =
-		{ repoName: String ->
-			{ id: String ->
-				{ filename: String ->
+		/** The name of the directory the cover letter and CV is held in */
+		const val BASE_DIRECTORY_NAME = "tech"
+
+		/** The filename of the CV file in the repo */
+		const val CV_FILENAME = "cv.json"
+
+		/** The filename of the cover letter file in the repo */
+		const val COVER_LETTER_FILENAME = "coverletter.json"
+
+		/** creates a Json object for use by the class */
+		private val json = Json { ignoreUnknownKeys = true }
+
+		/** Gets the private environment variables required for the API connection */
+		private val env = getGithubVariables()
+
+		/** Function to generate the URL for a particular file, from a particular branch */
+		private val repoURL = urlGenerator(env.userName)(env.repoName)(BASE_DIRECTORY_NAME)
+
+
+		/**
+		 * Generates the URL string to retrieve the file from GitHub
+		 */
+		private fun urlGenerator(userName: String) =
+			{ repoName: String ->
+				{ id: String ->
 					{ branch: String ->
-						"https://api.github.com/repos/$userName/$repoName/contents/$id/$filename?ref=$branch"
+						{ filename: String ->
+							"https://api.github.com/repos/$userName/$repoName/contents/$id/$filename?ref=$branch"
+						}
 					}
 				}
 			}
-		}
+	}
 
+	override suspend fun getCV(id: String): Pair<CV?, HttpStatusCode> {
+		val fileContents = getFile(branch = id, fileName = CV_FILENAME)
 
-	override suspend fun getCV(branch: String): Pair<CV?, HttpStatusCode> {
-
-		val fileContents = getFile(branch = branch, fileName = CV_FILENAME)
 		// The raw file downloaded, parse to a CV object
 		val cv = json.decodeFromString<CV>(fileContents.body())
 
@@ -45,10 +62,16 @@ class GitHub : DataStore {
 	}
 
 
+	override suspend fun getCover(id: String): Pair<String, HttpStatusCode> {
+		val fileContents = getFile(branch = id, fileName = COVER_LETTER_FILENAME)
+		return Pair(fileContents.body(), HttpStatusCode.OK)
+	}
+
+
 	private suspend fun getFile(branch: String, fileName: String): HttpResponse {
 		val client = HttpClient(CIO)
 		val getWithAuthorization = get(client)(env.personalAccessToken)
-		val url = urlGenerator(env.userName)(env.repoName)(BASE_DIRECTORY_NAME)(fileName)(branch)
+		val url = repoURL(branch)(fileName)
 		println(url)
 		val lookupResponse = getWithAuthorization(url)
 		println(lookupResponse.body() as String)
@@ -62,13 +85,6 @@ class GitHub : DataStore {
 		val fileInfo = json.decodeFromString<GitHubAPI.Contents>(lookupResponse.body())
 
 		return getWithAuthorization(fileInfo.download_url)
-	}
-
-
-	override suspend fun getCover(branch: String): Pair<String, HttpStatusCode> {
-		val fileContents = getFile(branch = branch, fileName = COVER_LETTER_FILENAME)
-		// The raw file downloaded, parse to a CV object
-		return Pair(fileContents.body(), HttpStatusCode.OK)
 	}
 
 	private fun get(client: HttpClient) =

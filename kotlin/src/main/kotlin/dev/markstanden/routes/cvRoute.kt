@@ -8,12 +8,11 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 // TODO: 02/07/2022 refactor this route with github specific code extracted.
-fun Route.cvRoute(path: String, store: DataStore) {
-	route("/$path/{folder}") {
+fun Route.cvRoute(baseRoute: String, store: DataStore) {
+	route("/$baseRoute/{folder}") {
 		get {
 			val folder = call.parameters["folder"]!!
 			// TODO: 06/07/2022 clean/validate user input
-
 
 			val (cv, status) = store.getCV(id = folder)
 
@@ -22,7 +21,6 @@ fun Route.cvRoute(path: String, store: DataStore) {
 				call.respond("Something went wrong")
 				return@get
 			}
-
 
 			// TODO: 02/07/2022 refactor with CV as a single variable
 			call.respond(

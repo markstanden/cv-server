@@ -19,7 +19,7 @@ class GitHub : DataStore {
 		const val GITHUB_JSON = "application/vnd.github.v3+json"
 
 		/** The name of the directory the cover letter and CV is held in */
-		const val BASE_DIRECTORY_NAME = "tech"
+		const val BASE_DIRECTORY_NAME = "data"
 
 		/** The filename of the CV file in the repo */
 		const val CV_FILENAME = "cv.json"
@@ -42,10 +42,10 @@ class GitHub : DataStore {
 		 */
 		private fun urlGenerator(userName: String) =
 			{ repoName: String ->
-				{ id: String ->
+				{ baseDir: String ->
 					{ branch: String ->
 						{ filename: String ->
-							"https://api.github.com/repos/$userName/$repoName/contents/$id/$filename?ref=$branch"
+							"https://api.github.com/repos/$userName/$repoName/contents/${if (baseDir != "") "$baseDir/" else ""}$filename?ref=$branch"
 						}
 					}
 				}

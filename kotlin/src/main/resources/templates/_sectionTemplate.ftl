@@ -17,7 +17,7 @@
         <p class="item-content">
             <#list item.content as points>
                 <span class="item-point">${points}</span>
-            </#list><#lt>.
+            </#list>
         </p>
         <#if item.dates != "">
             <p class="dates"><strong>${item.dates}</strong></p>

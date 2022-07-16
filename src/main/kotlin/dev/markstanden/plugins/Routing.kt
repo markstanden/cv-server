@@ -1,7 +1,6 @@
 package dev.markstanden.plugins
 
 import dev.markstanden.datastore.DataStore
-import dev.markstanden.datastore.GitHub
 import dev.markstanden.routes.cvRoute
 import dev.markstanden.routes.healthcheckRoute
 import dev.markstanden.routes.root
@@ -21,8 +20,8 @@ fun Application.configureRouting(baseRoute: String, store: DataStore) {
 			sampleRoute()
 		}
 
-		root(baseRoute = baseRoute, store = GitHub())
-		cvRoute(baseRoute = baseRoute, store = GitHub())
+		root(baseRoute = baseRoute, store = store)
+		cvRoute(baseRoute = baseRoute, store = store)
 		healthcheckRoute()
 	}
 }

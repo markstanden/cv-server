@@ -14,18 +14,21 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 class GitHub : DataStore {
+
+	override val baseBranch = "full"
+
 	companion object {
 		/** GitHub recommends the following accept string */
-		const val GITHUB_JSON = "application/vnd.github.v3+json"
+		private const val GITHUB_JSON = "application/vnd.github.v3+json"
 
 		/** The name of the directory the cover letter and CV is held in */
-		const val BASE_DIRECTORY_NAME = "data"
+		private const val BASE_DIRECTORY_NAME = "data"
 
 		/** The filename of the CV file in the repo */
-		const val CV_FILENAME = "cv.json"
+		private const val CV_FILENAME = "cv.json"
 
 		/** The filename of the cover letter file in the repo */
-		const val COVER_LETTER_FILENAME = "coverletter.json"
+		private const val COVER_LETTER_FILENAME = "coverletter.json"
 
 		/** creates a Json object for use by the class */
 		private val json = Json { ignoreUnknownKeys = true }

@@ -79,9 +79,13 @@ h4 {
 }
 
 
-.cover-text,
-.signature {
+.cover-text {
 	margin : 1rem;
+}
+
+
+.cover-text > p {
+	margin : 0.5rem;
 }
 
 

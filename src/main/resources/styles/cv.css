@@ -3,7 +3,7 @@
 	--leftColWidth      : 20rem;
 	--rightColWidth     : 15rem;
 	font-family         : "Inter Light", sans-serif;
-	font-size           : 90%;
+	font-size           : 85%;
 	--color-impact      : mediumblue;
 	--base-indent       : 1.5rem;
 	--bar-spacing       : 1rem;
@@ -253,7 +253,7 @@ h4 {
 
 @media only print {
 	:root {
-		font-size : 75%;
+		font-size : 70%;
 	}
 
 

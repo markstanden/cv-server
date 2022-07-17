@@ -26,7 +26,10 @@ fun Route.cvRoute(baseRoute: String, store: DataStore) {
 			call.respond(
 				FreeMarkerContent(
 					template = "cvTemplate.ftl", model = mapOf(
-					"user" to cv.user, "experience" to cv.experienceSection, "sections" to cv.sections
+					"coverLetter" to cv.coverLetter,
+					"user" to cv.user,
+					"experience" to cv.experienceSection,
+					"sections" to cv.sections
 				)
 				)
 			)

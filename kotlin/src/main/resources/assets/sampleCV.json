@@ -22,8 +22,17 @@
 				"title": "Blog",
 				"url": "https://www.medium.com"
 			}
+		]
+	},
+	"coverLetter": {
+		"greeting": "Dear Sir/Madam",
+		"text": [
+			"I'm baby hammock af dreamcatcher narwhal farm-to-table forage keffiyeh mixtape palo santo. Mustache slow-carb direct trade humblebrag.",
+			"Tofu vaporware bicycle rights, scenester drinking vinegar air plant franzen activated charcoal humblebrag glossier succulents food truck hell of migas wayfarers.",
+			"Hot chicken master cleanse williamsburg thundercats godard polaroid hashtag subway tile cray. Fam flannel art party snackwave schlitz, normcore vaporware bushwick flexitarian 3 wolf moon iceland ramps crucifix poutine shoreditch.",
+			"Small batch man braid kogi taxidermy, marfa activated charcoal literally fashion axe keytar deep v heirloom. Banh mi occupy hella, shabby chic kombucha pop-up offal praxis banjo tumeric before they sold out. (hipsum.co)"
 		],
-		"summary": "I'm baby hammock af dreamcatcher narwhal farm-to-table forage keffiyeh mixtape palo santo. Mustache slow-carb direct trade humblebrag. Tofu vaporware bicycle rights, scenester drinking vinegar air plant franzen activated charcoal humblebrag glossier succulents food truck hell of migas wayfarers. Hot chicken master cleanse williamsburg thundercats godard polaroid hashtag subway tile cray. Fam flannel art party snackwave schlitz, normcore vaporware bushwick flexitarian 3 wolf moon iceland ramps crucifix poutine shoreditch. Small batch man braid kogi taxidermy, marfa activated charcoal literally fashion axe keytar deep v heirloom. Banh mi occupy hella, shabby chic kombucha pop-up offal praxis banjo tumeric before they sold out. (hipsum.co)"
+		"signOff": "Yours Faithfully"
 	},
 	"experienceSection": {
 		"title": "Work Experience",

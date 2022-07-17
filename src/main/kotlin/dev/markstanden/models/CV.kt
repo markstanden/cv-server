@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CV(
 	val user: User,
+	val coverLetter: CoverLetter,
 	val experienceSection: ExperienceSection,
 	val sections: List<Section>,
 ) {
@@ -14,7 +15,6 @@ data class CV(
 		val location: Location,
 		val contact: Contact,
 		val links: List<Link>,
-		val summary: String,
 	)
 
 	@Serializable

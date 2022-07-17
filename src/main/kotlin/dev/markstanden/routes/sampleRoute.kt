@@ -8,16 +8,18 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.json.Json
 
-private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = "/assets/sample.json")!!)
+private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = "/assets/sampleCV.json")!!)
 
 fun Route.sampleRoute() {
 
 	route("/sample") {
 		get {
+			println(sampleCV)
 			call.respond(
 				FreeMarkerContent(
 					template = "cvTemplate.ftl",
 					model = mapOf(
+						"coverLetter" to sampleCV.coverLetter,
 						"user" to sampleCV.user,
 						"experience" to sampleCV.experienceSection,
 						"sections" to sampleCV.sections

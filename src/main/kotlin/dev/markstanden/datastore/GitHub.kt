@@ -75,11 +75,10 @@ class GitHub : DataStore {
 		val client = HttpClient(CIO)
 		val getWithAuthorization = get(client)(env.personalAccessToken)
 		val url = repoURL(branch)(fileName)
-		println(url)
 		val lookupResponse = getWithAuthorization(url)
-		println(lookupResponse.body() as String)
 		// Abort early if the file is not found or inaccessible
 		if (lookupResponse.status != HttpStatusCode.OK) {
+
 			client.close()
 			return lookupResponse
 		}

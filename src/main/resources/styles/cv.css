@@ -47,7 +47,7 @@ a {
 
 
 h1 {
-	font-size   : 1.8rem;
+	font-size   : 1.9rem;
 	font-weight : 200;
 	line-height : 1.5;
 }
@@ -56,7 +56,7 @@ h1 {
 h2 {
 	font-size   : 1.5rem;
 	font-weight : 200;
-	line-height : 1.7;
+	line-height : 1.5;
 }
 
 
@@ -167,8 +167,8 @@ h4 {
 
 .section-header {
 	border-bottom : 2px solid var(--color-impact);
-	line-height   : 1.2;
-	margin        : 1rem 0 0.5rem 0;
+	line-height   : 1.15;
+	margin        : 0.8rem 0 0.5rem 0;
 	width         : 100%;
 }
 
@@ -257,13 +257,24 @@ h4 {
 	}
 
 
+	body {
+		line-height : 1.7;
+	}
+
+
 	html {
-		margin : 0 1rem 0 0;
+		margin : 0 auto 0 auto;
 	}
 
 
 	.section-wrapper {
 		page-break-inside : avoid;
+	}
+
+
+	.vertically-spaced {
+		margin-bottom : 0.2rem;
+		margin-top    : 0.2rem;
 	}
 
 

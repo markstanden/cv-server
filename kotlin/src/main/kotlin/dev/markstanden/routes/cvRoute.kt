@@ -6,10 +6,12 @@ import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.util.*
+import kotlin.text.toCharArray
 
 // TODO: 02/07/2022 refactor this route with github specific code extracted.
-fun Route.cvRoute(baseRoute: String, store: DataStore) {
-	route("/$baseRoute/{folder}") {
+fun Route.cvRoute(store: DataStore) {
+	route("/{folder}") {
 		get {
 			val folder = call.parameters["folder"]!!
 			// TODO: 06/07/2022 clean/validate user input

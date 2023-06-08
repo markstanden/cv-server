@@ -13,8 +13,10 @@ import kotlin.text.toCharArray
 fun Route.cvRoute(store: DataStore) {
 	route("/{folder}") {
 		get {
-			val folder = call.parameters["folder"]!!
+			val unsanitisedFolder = call.parameters["folder"]!!
 			// TODO: 06/07/2022 clean/validate user input
+
+			val folder = unsanitisedFolder.substringBefore('/')
 
 			val (cv, status) = store.getCV(id = folder)
 

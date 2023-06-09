@@ -12,7 +12,7 @@ private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = 
 
 fun Route.sampleRoute() {
 
-	route("/sample") {
+	route("/test") {
 		get {
 			println(sampleCV)
 			call.respond(

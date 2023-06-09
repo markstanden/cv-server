@@ -14,10 +14,10 @@ class ApplicationTest {
 	fun testGHApiSetup() =
 		testApplication {
 			application {
-				configureRouting("test", GitHub())
+				configureRouting(GitHub())
 				configureTemplating()
 			}
-			client.get("/test/full").apply {
+			client.get("/full").apply {
 				assertEquals(HttpStatusCode.OK, status)
 			}
 		}

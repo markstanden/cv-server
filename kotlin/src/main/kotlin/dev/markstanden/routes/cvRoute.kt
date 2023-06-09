@@ -1,6 +1,7 @@
 package dev.markstanden.routes
 
 import dev.markstanden.datastore.DataStore
+import dev.markstanden.userinput.hardSanitise
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
@@ -9,14 +10,12 @@ import io.ktor.server.routing.*
 import io.ktor.util.*
 import kotlin.text.toCharArray
 
-// TODO: 02/07/2022 refactor this route with github specific code extracted.
+val MAX_BRANCH_LENGTH = 20
+
 fun Route.cvRoute(store: DataStore) {
 	route("/{folder}") {
 		get {
-			val unsanitisedFolder = call.parameters["folder"]!!
-			// TODO: 06/07/2022 clean/validate user input
-
-			val folder = unsanitisedFolder.substringBefore('/')
+			val folder = hardSanitise(call.parameters["folder"]!!, maxLength = MAX_BRANCH_LENGTH)
 
 			val (cv, status) = store.getCV(id = folder)
 

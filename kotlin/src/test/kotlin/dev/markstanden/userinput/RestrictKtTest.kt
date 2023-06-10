@@ -1,28 +1,48 @@
 package dev.markstanden.userinput
 
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 class RestrictKtTest {
 
     @Test
     fun `test with valid alphanumeric input string`() {
-        val test = "abcABC0123789"
+        val input = "abcABC0123789"
         val validChars = emptySet<Char>()
-        assertTrue(test.restrictToAlphasAnd(validChars) == test)
+
+        val output = input.restrictToAlphasAnd(validChars)
+
+        assertEquals(input, output)
     }
+
     @Test
     fun `test with invalid characters`() {
-        val test = "-abcABC0123789-"
+        val input = "-abcABC0123789-"
         val validChars = emptySet<Char>()
-        assertFalse(test.restrictToAlphasAnd(validChars) == test)
+
+        val output = input.restrictToAlphasAnd(validChars)
+
+        assertNotEquals(input, output)
     }
 
     @Test
     fun `test with valid characters in added set`() {
-        val test = "-abcABC0123789-"
+        val input = "-abcABC0123789-"
         val validChars = setOf('-')
-        assertTrue(test.restrictToAlphasAnd(validChars) == test)
+
+        val output = input.restrictToAlphasAnd(validChars)
+
+        assertEquals(input, output)
+    }
+
+    @Test
+    fun `test with characters outside valid set`() {
+        val input = "-abcABC:0123789-"
+        val validChars = setOf('-')
+
+        val output = input.restrictToAlphasAnd(validChars)
+
+        assertNotEquals(input, output)
     }
 }

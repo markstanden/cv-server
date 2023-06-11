@@ -30,7 +30,7 @@ class RemoveTrailingKtTest {
         val trailingChar = '#'
         val expected = "-abcABC0123789-"
 
-        val output = input.removeTrailing(trailingChar)
+        val output = input.removeTrailing(character = trailingChar)
 
         assertEquals(output, expected)
     }
@@ -41,7 +41,7 @@ class RemoveTrailingKtTest {
         val trailingChar = '#'
         val expected = "-abcABC0123789-"
 
-        val output = input.removeTrailing(trailingChar)
+        val output = input.removeTrailing(character = trailingChar)
 
         assertEquals(output, expected)
     }
@@ -52,7 +52,7 @@ class RemoveTrailingKtTest {
         val trailingChar = '?'
         val expected = "-abc?ABC?0123789-"
 
-        val output = input.removeTrailing(trailingChar)
+        val output = input.removeTrailing(character = trailingChar)
 
         assertEquals(output, expected)
     }
@@ -63,7 +63,7 @@ class RemoveTrailingKtTest {
         val trailingChar = '?'
         val expected = "-abc?ABC?0123789-"
 
-        val output = input.removeTrailing(trailingChar)
+        val output = input.removeTrailing(character = trailingChar)
 
         assertEquals(output, expected)
     }

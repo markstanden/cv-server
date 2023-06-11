@@ -7,15 +7,13 @@ import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.util.*
-import kotlin.text.toCharArray
 
 val MAX_BRANCH_LENGTH = 20
 
 fun Route.cvRoute(store: DataStore) {
 	route("/{folder}") {
 		get {
-			val folder = hardSanitise(call.parameters["folder"]!!, maxLength = MAX_BRANCH_LENGTH)
+			val folder = hardSanitise(userInput = call.parameters["folder"]!!, restrictedLength = MAX_BRANCH_LENGTH)
 
 			val (cv, status) = store.getCV(id = folder)
 

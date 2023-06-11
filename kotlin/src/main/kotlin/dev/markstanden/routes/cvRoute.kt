@@ -12,11 +12,11 @@ import io.ktor.server.routing.*
 val MAX_BRANCH_LENGTH = 20
 
 fun Route.cvRoute(store: DataStore) {
-	route("/{folder}") {
+	route("/{version}") {
 		get {
-			val folder = call.parameters["folder"].sanitise(restrictedLength = MAX_BRANCH_LENGTH)
+			val version = call.parameters["version"].sanitise(restrictedLength = MAX_BRANCH_LENGTH)
 
-			val (cv, status) = store.getCV(id = folder)
+			val (cv, status) = store.getCV(id = version)
 
 			if (status != HttpStatusCode.OK || cv == null) {
 				call.response.status(status)

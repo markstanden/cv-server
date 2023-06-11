@@ -1,6 +1,7 @@
 package dev.markstanden.routes
 
 import dev.markstanden.datastore.DataStore
+import dev.markstanden.models.toMap
 import dev.markstanden.userinput.sanitise
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -23,15 +24,9 @@ fun Route.cvRoute(store: DataStore) {
 				return@get
 			}
 
-			// TODO: 02/07/2022 refactor with CV as a single variable
 			call.respond(
 				FreeMarkerContent(
-					template = "cvTemplate.ftl", model = mapOf(
-					"coverLetter" to cv.coverLetter,
-					"user" to cv.user,
-					"experience" to cv.experienceSection,
-					"sections" to cv.sections
-				)
+					template = "cvTemplate.ftl", model = cv.toMap()
 				)
 			)
 		}

@@ -2,6 +2,16 @@ package dev.markstanden.models
 
 import kotlinx.serialization.Serializable
 
+/**
+ * Extension method that creates a map of the retrieved CV and creates a map as required by
+ * FreeMaker
+ */
+fun CV.toMap() = mapOf(
+	"coverLetter" to this.coverLetter,
+	"user" to this.user,
+	"experience" to this.experienceSection,
+	"sections" to this.sections
+)
 @Serializable
 data class CV(
 	val user: User,

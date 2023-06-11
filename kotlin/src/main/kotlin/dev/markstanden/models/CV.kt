@@ -3,8 +3,8 @@ package dev.markstanden.models
 import kotlinx.serialization.Serializable
 
 /**
- * Extension method that creates a map of the retrieved CV and creates a map as required by
- * FreeMaker
+ * Extension method that creates a map of the retrieved CV
+ * as required by FreeMaker
  */
 fun CV.toMap() = mapOf(
 	"coverLetter" to this.coverLetter,

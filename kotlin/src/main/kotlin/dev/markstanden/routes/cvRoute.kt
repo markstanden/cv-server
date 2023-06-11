@@ -2,6 +2,7 @@ package dev.markstanden.routes
 
 import dev.markstanden.datastore.DataStore
 import dev.markstanden.models.toMap
+import dev.markstanden.userinput.removeTrailing
 import dev.markstanden.userinput.sanitise
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -14,7 +15,10 @@ val MAX_BRANCH_LENGTH = 20
 fun Route.cvRoute(store: DataStore) {
 	route("/{version}") {
 		get {
-			val version = call.parameters["version"].sanitise(restrictedLength = MAX_BRANCH_LENGTH)
+			// Sanitise potential user input string.
+			val version = call.parameters["version"]
+				.sanitise(restrictedLength = MAX_BRANCH_LENGTH)
+				.removeTrailing('/')
 
 			val (cv, status) = store.getCV(id = version)
 

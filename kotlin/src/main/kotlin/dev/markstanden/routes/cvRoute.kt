@@ -1,7 +1,7 @@
 package dev.markstanden.routes
 
 import dev.markstanden.datastore.DataStore
-import dev.markstanden.userinput.hardSanitise
+import dev.markstanden.userinput.sanitise
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
@@ -13,7 +13,7 @@ val MAX_BRANCH_LENGTH = 20
 fun Route.cvRoute(store: DataStore) {
 	route("/{folder}") {
 		get {
-			val folder = hardSanitise(userInput = call.parameters["folder"]!!, restrictedLength = MAX_BRANCH_LENGTH)
+			val folder = call.parameters["folder"].sanitise(restrictedLength = MAX_BRANCH_LENGTH)
 
 			val (cv, status) = store.getCV(id = folder)
 

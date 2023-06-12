@@ -2,6 +2,7 @@ package dev.markstanden.routes
 
 import dev.markstanden.Files.asResource
 import dev.markstanden.models.CV
+import dev.markstanden.models.toMap
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.response.*
@@ -12,20 +13,11 @@ private val sampleCV = Json.decodeFromString(CV.serializer(), asResource(path = 
 
 fun Route.sampleRoute() {
 
-	route("/test") {
-		get {
-			println(sampleCV)
-			call.respond(
-				FreeMarkerContent(
-					template = "cvTemplate.ftl",
-					model = mapOf(
-						"coverLetter" to sampleCV.coverLetter,
-						"user" to sampleCV.user,
-						"experience" to sampleCV.experienceSection,
-						"sections" to sampleCV.sections
-					)
-				)
-			)
-		}
-	}
+    route("/test") {
+        get {
+            call.respond(
+                FreeMarkerContent(template = "cvTemplate.ftl", model = sampleCV.toMap())
+            )
+        }
+    }
 }

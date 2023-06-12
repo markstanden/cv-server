@@ -32,9 +32,7 @@ fun Route.cvRoute(store: DataStore) {
 
 			// Output successfully retreived CV
 			call.respond(
-				FreeMarkerContent(
-					template = "cvTemplate.ftl", model = cv.toMap()
-				)
+				FreeMarkerContent(template = "cvTemplate.ftl", model = cv.toMap())
 			)
 		}
 	}

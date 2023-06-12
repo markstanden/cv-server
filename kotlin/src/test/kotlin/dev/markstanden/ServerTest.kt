@@ -10,7 +10,7 @@ import io.ktor.server.testing.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class ApplicationTest {
+class ServerTest {
 	@Test
 	fun `Internal test using test route to test rendering`() =
 		testApplication {

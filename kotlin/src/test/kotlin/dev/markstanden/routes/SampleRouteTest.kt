@@ -1,4 +1,4 @@
-package dev.markstanden
+package dev.markstanden.routes
 
 import dev.markstanden.datastore.GitHub
 import dev.markstanden.plugins.configureRouting

@@ -1,7 +1,5 @@
-package dev.markstanden
+package dev.markstanden.routes
 
-import io.ktor.client.statement.*
-import org.junit.Test
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.function.Executable

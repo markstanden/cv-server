@@ -20,20 +20,22 @@ fun Route.cvRoute(store: DataStore) {
 				.sanitise(restrictedLength = MAX_BRANCH_LENGTH)
 				.removeTrailing('/')
 
+			// Retrieve the CV from the data store
 			val (cv, status) = store.getCV(id = version)
 
+			// Check for retrieval errors
 			if (status != HttpStatusCode.OK || cv == null) {
 				call.response.status(status)
 				call.respond("Something went wrong")
 				return@get
 			}
 
+			// Output successfully retreived CV
 			call.respond(
 				FreeMarkerContent(
 					template = "cvTemplate.ftl", model = cv.toMap()
 				)
 			)
 		}
-
 	}
 }

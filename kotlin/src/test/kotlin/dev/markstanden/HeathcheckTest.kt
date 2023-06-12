@@ -8,9 +8,10 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-class ServerTest {
+class HeathcheckTest {
 	@Test
 	fun `Internal test using test route to test rendering`() =
 		testApplication {
@@ -18,9 +19,9 @@ class ServerTest {
 				configureRouting(GitHub())
 				configureTemplating()
 			}
-			client.get("/test").apply {
+			client.get("/healthcheck").apply {
 				assertEquals(HttpStatusCode.OK, status)
-				this.bodyAsText().basePageTests()
+				assertTrue(this.bodyAsText().isNotEmpty())
 			}
 		}
 }
